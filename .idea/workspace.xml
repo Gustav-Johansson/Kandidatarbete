@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1f87f66d-57dd-403b-9c94-09657787cda2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/IMU1_Arvid_Gravity.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IMU1_Arvid_Quaternion.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IMU2_Arvid_Gravity.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IMU2_Arvid_Quaternion.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_mergerd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crop.py" afterDir="false" />
-    </list>
+    <list default="true" id="1f87f66d-57dd-403b-9c94-09657787cda2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
