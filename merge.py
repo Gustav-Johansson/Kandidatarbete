@@ -15,22 +15,24 @@ merge = pd.merge_asof(df_gyro, df_acc, on='elapsed (s)')
 print(merge)
 
 
-time = merge.iloc[:,0]
-ax = merge.iloc[:,5]
-ay = merge.iloc[:,6]
-az = merge.iloc[:,7]
+g = 9.81
 
-wx = merge.iloc[:,2]
-wy = merge.iloc[:,3]
-wz = merge.iloc[:,4]  
+time = merge.iloc[:,0]
+ax = merge.iloc[:,5] * g
+ay = merge.iloc[:,6] * g
+az = merge.iloc[:,7] * g 
+
+wx = merge.iloc[:,2] 
+wy = merge.iloc[:,3] 
+wz = merge.iloc[:,4] 
 
 b = 0 # beta, rotation kring x-axel
 y = 0 # keppa rotation kring y-axel
 a = 0 # alfa, rotation kring z-axel
 
-vx = [0]
-vy = [0]
-vz = [0]
+vx = [0] 
+vy = [0] 
+vz = [0] 
 
 vx_t = [0]
 vy_t = [0]
@@ -83,6 +85,8 @@ plt.plot(time, ay, 'b' , label = "ay")
 plt.plot(time, az, 'g', label = "az")
 plt.plot(merge.iloc[time_max_ay, 0], merge.iloc[time_max_ay, 5], '*')
 plt.plot(merge.iloc[time_max_ay - 5, 0], merge.iloc[time_max_ay - 5, 5], '*')
+
+
 plt.grid()
 plt.legend()
 plt.show()
