@@ -17,9 +17,9 @@ df_gyro = pd.read_csv(importfile2)
 # print(df_acc.head(5))
 # print(df_gyro.head(5))
 
-df_acc.pop('timestamp (+0200)')
+df_acc.pop('timestamp (+0100)')
 df_acc.pop('epoc (ms)')
-df_gyro.pop('timestamp (+0200)')
+df_gyro.pop('timestamp (+0100)')
 df_gyro.pop('epoc (ms)')
 
 table = pd.merge_asof(df_acc, df_gyro, on='elapsed (s)')
