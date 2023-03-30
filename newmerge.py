@@ -6,8 +6,8 @@ from Lamm import *
 
 plt.rcParams['figure.figsize'] = [8, 12]
 
-importfile = 'IMU1_Arvid_Gravity.csv'
-importfile2 = 'IMU1_Arvid_Quaternion.csv'
+importfile = 'test'
+importfile2 = 'quat1'
 
 #importfile = 'testmed100hz.csv'
 #importfile2 = 'testmed100hzq.csv'
@@ -17,20 +17,34 @@ df_gyro = pd.read_csv(importfile2)
 # print(df_acc.head(5))
 # print(df_gyro.head(5))
 
-df_acc.pop('timestamp (+0100)')
+if any(df_acc.columns.values) == 'timestamp(+0100)':
+    df_acc.pop('timestamp (+0100)')
+    df_gyro.pop('timestamp (+0100)')
+else:
+    df_acc.pop('timestamp (+0200)')
+    df_gyro.pop('timestamp (+0200)')
 df_acc.pop('epoc (ms)')
-df_gyro.pop('timestamp (+0100)')
 df_gyro.pop('epoc (ms)')
 
-table = pd.merge_asof(df_acc, df_gyro, on='elapsed (s)')
+table = pd.merge_asof(df_gyro, df_acc, on='elapsed (s)')
 
 table.iloc[:,5:]*=9.82
 
 # Korrigering
+iterfile = iter(table.iterrows())
+next(iterfile)
 
-for i, val in enumerate(table.columns):
-    #if sum(table.iloc[:,i]):
-        table.iloc[:, i] = table.iloc[:, i] - table.iloc[0, i]
+table.iloc[:,5:]-=table.iloc[0,5:]
+"""
+# vilken tid i början som ska försvinna
+for i, val in enumerate(iterfile):
+    if sum(abs(table.iloc[i,5:])) < 1.5:
+        continue
+    else:
+        break
+for j in range(0, len(table.iloc[:,1])-i):
+        table.iloc[j, :] = table.iloc[i+j, :]
+"""
 
 fig, axs = plt.subplots(3, 1)
 axs[0].grid()
@@ -61,16 +75,15 @@ axs[0].annotate('Jump force ends', xy=(table.iloc[between[-1], 0], table.iloc[be
 
 num1 = range(pos + 20, pos + 30)
 # finner var värdet är närmast 1. Där kan man anse att man har hamnat i högsta läget av hoppet.
-error = 1
+error = 10
 for i in num1:
     value = sum(table.iloc[i, 5:])
     if (abs(value) - 1) < error:
         error = abs(value - 1)
         position = i
 
-axs[0].axvline(table.iloc[position, 0])
-axs[0].annotate(f'Highest position with force {error}', xy=(table.iloc[position, 0], table.iloc[position, 5]),
-                xytext=(8.6, 3), arrowprops=dict(arrowstyle="->", connectionstyle="arc3"))
+#axs[0].axvline(table.iloc[position, 0])
+#axs[0].annotate(f'Highest position with force {error}', xy=(table.iloc[position, 0], table.iloc[position, 5]),xytext=(8.6, 3), arrowprops=dict(arrowstyle="->", connectionstyle="arc3"))
 plt.grid()
 axs[0].legend()
 #plt.xlim([8, 9])
@@ -140,14 +153,14 @@ axs[2].plot(time, vx_t, 'r', label="vx")
 axs[2].plot(time, vy_t, 'b', label="vy")
 axs[2].plot(time, vz_t, 'g', label="vz")
 
-error = 100
+error = 1000
 for i in num1:
     value = sum([vx_t[i], vy_t[i], vz_t[i]])
     if abs(value) < error:
         errorv = abs(value - 1)
         positionv = i
 
-axs[2].plot(time[positionv], vy_t[positionv], 'o')
+#axs[2].plot(time[positionv], vy_t[positionv], 'o')
 
 # get_positions(table, 0, 0, 0, 0, 0, 0, 100)
 
