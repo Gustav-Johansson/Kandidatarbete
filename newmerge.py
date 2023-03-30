@@ -6,8 +6,8 @@ from Lamm import *
 
 plt.rcParams['figure.figsize'] = [8, 12]
 
-importfile = 'IMU1_Anders_Gravity.csv'
-importfile2 = 'IMU1_Anders_Quaternion.csv'
+importfile = 'IMU1_Arvid_Gravity.csv'
+importfile2 = 'IMU1_Arvid_Quaternion.csv'
 
 #importfile = 'testmed100hz.csv'
 #importfile2 = 'testmed100hzq.csv'
@@ -29,7 +29,8 @@ table.iloc[:,5:]*=9.82
 # Korrigering
 
 for i, val in enumerate(table.columns):
-    table.iloc[:, i] = table.iloc[:, i] - table.iloc[0, i]
+    #if sum(table.iloc[:,i]):
+        table.iloc[:, i] = table.iloc[:, i] - table.iloc[0, i]
 
 fig, axs = plt.subplots(3, 1)
 axs[0].grid()
