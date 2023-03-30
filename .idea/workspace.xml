@@ -2,27 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f87f66d-57dd-403b-9c94-09657787cda2" name="Changes" comment="testar">
-      <change afterPath="$PROJECT_DIR$/Datainsamling/Smilla/both/IMU2_crop_G" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Datainsamling/Smilla/both/IMU2_crop_G.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_merged" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/merge.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/merged" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datainsamling/Smilla/both/IMU1_2023-03-29T15.28.02.680_DED8E217A5EE_Gravity.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Datainsamling/Smilla/both/IMU1_2023-03-29T15.28.02.680_DED8E217A5EE_Gravity.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datainsamling/Smilla/both/IMU2_2023-03-29T15.28.02.680_CFFE2E15FC84_Gravity.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Datainsamling/Smilla/both/IMU2_2023-03-29T15.28.02.680_CFFE2E15FC84_Gravity.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMU1_Accelerometer.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMU1_Arvid_Gravity.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMU1_Arvid_Quaternion.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMU1_Gyroscope.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMU1_LinearAcceleration.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMU1_LinearAcceleration_hopp.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMU1_Quaternion.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMU1_Quaternion_hopp.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMU2_Arvid_Gravity.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMU2_Arvid_Quaternion.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/XYZ_acc.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_merged.csv" beforeDir="false" afterPath="$PROJECT_DIR$/_merged.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crop.py" beforeDir="false" afterPath="$PROJECT_DIR$/crop.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/newmerge.py" beforeDir="false" afterPath="$PROJECT_DIR$/newmerge.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quat2" beforeDir="false" afterPath="$PROJECT_DIR$/quat2" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +25,14 @@
     <option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true" />
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -106,6 +99,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="merge" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Kandidatarbete" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/merge.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="newmerge" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Kandidatarbete" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -130,8 +144,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.newmerge" />
-        <item itemvalue="Python.crop2" />
+        <item itemvalue="Python.merge" />
         <item itemvalue="Python.crop" />
+        <item itemvalue="Python.crop2" />
       </list>
     </recent_temporary>
   </component>
@@ -158,7 +173,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680091365616</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="testar">
+      <created>1680175639171</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1680175639171</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -184,19 +206,14 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/newmerge.py</url>
-          <line>44</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/crop.py</url>
           <line>10</line>
-          <option name="timeStamp" value="27" />
+          <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/crop.py</url>
-          <line>7</line>
-          <option name="timeStamp" value="29" />
+          <url>file://$PROJECT_DIR$/newmerge.py</url>
+          <line>60</line>
+          <option name="timeStamp" value="49" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

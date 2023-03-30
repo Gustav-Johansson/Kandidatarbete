@@ -46,6 +46,68 @@ for j in range(0, len(table.iloc[:,1])-i):
         table.iloc[j, :] = table.iloc[i+j, :]
 """
 
+# Sätter w på rätt plats
+table = table[['elapsed (s)', 'x (number)', 'y (number)', 'z (number)','w (number)', 'x-axis (g)', 'y-axis (g)', 'z-axis (g)']]
+
+time = table.iloc[:, 0]
+
+dt = time[1] - time[0]
+
+# Degrees value from quaternion
+acc = []
+for i, val in table.iterrows():
+    if sum(val[1:5])==0:
+        val[1]+=0.001
+    r = R.from_quat(val[1:5])
+    #v = r.as_euler('zyx', degrees=True)
+    v = r.as_matrix()
+
+    acc.append(np.dot(v, val[5:]))
+acc = np.asarray(acc)
+
+
+
+b = 0  # beta, rotation kring x-axel
+y = 0  # keppa rotation kring y-axel
+a = 0  # alfa, rotation kring z-axel
+
+
+ax = [0]
+ay = [0]
+az = [0]
+ax_t = [0]
+ay_t = [0]
+az_t = [0]
+
+"""
+for i in np.arange((len(time)) - 1):
+    b = b + v[i][0] * (v[i+1][0] - v[i][0])
+    y = y + v[i][1] * (v[i+1][1] - v[i][1])
+    a = a + v[i][2] * (v[i+1][2] - v[i][2])
+
+
+
+    ax_t = ax_t + [ax[-1] * ((np.cos(b) * np.cos(y)) + (np.cos(b) * np.sin(y)) - np.sin(b))]
+    ay_t = ay_t + [ay[-1] * ((np.sin(a) * np.sin(b) * np.cos(y) - np.cos(a) * np.sin(y)) + (
+            np.sin(a) * np.sin(b) * np.sin(y) + np.cos(a) * np.cos(y)) + (np.sin(a) * np.cos(b)))]
+    az_t = az_t + [az[-1] * ((np.cos(a) * np.sin(b) * np.cos(y) + np.sin(a) * np.sin(y)) + (
+            np.cos(a) * np.sin(b) * np.sin(y) - np.sin(a) * np.cos(y)) + (np.cos(a) * np.cos(b)))]
+
+"""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 fig, axs = plt.subplots(3, 1)
 axs[0].grid()
 axs[1].grid()
@@ -53,10 +115,16 @@ axs[2].grid()
 #axs[0].set_xlim([8, 9])
 #axs[1].set_xlim([8, 9])
 #axs[2].set_xlim([8, 9])
-
+"""
 axs[0].plot(table.iloc[:, 0], table.iloc[:, 5], 'r', label="ay")
 axs[0].plot(table.iloc[:, 0], table.iloc[:, 6], 'b', label="ax")
 axs[0].plot(table.iloc[:, 0], table.iloc[:, 7], 'g', label="az")
+"""
+
+axs[0].plot(table.iloc[:, 0], acc[:,0], 'r', label="ay")
+axs[0].plot(table.iloc[:, 0], acc[:,1], 'b', label="ax")
+axs[0].plot(table.iloc[:, 0], acc[:,2], 'g', label="az")
+
 
 totnorm = np.linalg.norm(table.iloc[:, 5:], axis=1)
 
@@ -103,13 +171,7 @@ axs[1].annotate(f'Rörelsemängd = {force}', xy=(table.iloc[between[6], 0], tabl
                 arrowprops=dict(arrowstyle="->", connectionstyle="arc3"))
 
 # Gyroscope
-v=[]
-for i, val in table.iterrows():
-    if sum(val[1:5])==0:
-        val[1]+=0.001
-    r = R.from_quat(val[1:5])
-    v.append(r.as_euler('zyx', degrees=True))
-#print(v)
+
 
 
 
@@ -118,10 +180,6 @@ for i, val in table.iterrows():
 
 
 # Integrering
-
-time = table.iloc[:, 0]
-
-dt = time[1] - time[0]
 
 vx = [0]
 vy = [0]
@@ -135,9 +193,12 @@ y = 0  # keppa rotation kring y-axel
 a = 0  # alfa, rotation kring z-axel
 
 for i in np.arange((len(time)) - 1):
-    b = b + table.iloc[:, 2][i] * (time[i + 1] - time[i])
-    y = y + table.iloc[:, 3][i] * (time[i + 1] - time[i])
-    a = a + table.iloc[:, 4][i] * (time[i + 1] - time[i])
+    b = b + v[i][0] * (v[i+1][0] - v[i][0])
+    y = y + v[i][1] * (v[i+1][1] - v[i][1])
+    a = a + v[i][2] * (v[i+1][2] - v[i][2])
+
+    # y = y + table.iloc[:, 3][i] * (time[i + 1] - time[i])
+    # a = a + table.iloc[:, 4][i] * (time[i + 1] - time[i])
 
     vx = vx + [vx[-1] + table.iloc[:, 5][i] * (time[i + 1] - time[i])]
     vy = vy + [vy[-1] + table.iloc[:, 6][i] * (time[i + 1] - time[i])]
