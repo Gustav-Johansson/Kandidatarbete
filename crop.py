@@ -31,8 +31,9 @@ with os.scandir(basepath) as entries:
                 for i, val in enumerate(accelerations):
                     if float(val[2]) > 4 and np.sqrt(float(val[3]) ** 2 + float(val[4]) ** 2 + float(val[5]) ** 2) > 0.2:
                         break
-                iterval = i - 100
-                writer.writerows(accelerations[iterval:])
+                iterval = i - 50 # Tar bort
+                itervalend = len(accelerations)-300 # Tar bort 3s från slutet
+                writer.writerows(accelerations[iterval:itervalend])
 
 
 
