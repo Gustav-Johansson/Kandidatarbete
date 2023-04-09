@@ -1,13 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1f87f66d-57dd-403b-9c94-09657787cda2" name="Changes" comment="testar">
-      <change afterPath="$PROJECT_DIR$/merge.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/merged" afterDir="false" />
+    <list default="true" id="1f87f66d-57dd-403b-9c94-09657787cda2" name="Changes" comment="Jag har fixat med quaternion">
+      <change afterPath="$PROJECT_DIR$/LinearAccelerationtest.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lintest" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Quat_cropped" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Quaterniontest.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Quattest" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iscropped/configtest1LinA_crop" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iscropped/configtest1LinAcrop_crop" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iscropped/configtest1Quat_crop" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iscropped/configtest1Quatcrop_crop" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iscropped/configtest2lina_crop" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iscropped/configtest2linacrop_crop" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iscropped/configtest2quat_crop" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iscropped/configtest2quatcrop_crop" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iscropped/hometestlina_crop" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iscropped/hometestquat_crop" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iscropped/needcrop_crop" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iscropped/needcropcrop_crop" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/needstobecropped/configtest1LinA_cropped" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/needstobecropped/configtest1Quat_cropped" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/needstobecropped/configtest2_linacc.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/needstobecropped/configtest2_quat.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/needstobecropped/configtest2lina_cropped" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/needstobecropped/configtest2quat_cropped" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/needstobecropped/hometest_linacc.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/needstobecropped/hometest_quat.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/needstobecropped/need_cropped" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/needstobecropped/needcrop_cropped" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crop.py" beforeDir="false" afterPath="$PROJECT_DIR$/crop.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/merge.py" beforeDir="false" afterPath="$PROJECT_DIR$/merge.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/newmerge.py" beforeDir="false" afterPath="$PROJECT_DIR$/newmerge.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quat2" beforeDir="false" afterPath="$PROJECT_DIR$/quat2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/radata.py" beforeDir="false" afterPath="$PROJECT_DIR$/gustav_quatkod.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +80,9 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\erik\OneDrive\Dokument\GitHub\Kandidatarbete" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\erik\OneDrive\Dokument\GitHub\Kandidatarbete\needstobecropped" />
     </key>
   </component>
   <component name="RunManager" selected="Python.newmerge">
@@ -144,9 +173,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.newmerge" />
-        <item itemvalue="Python.merge" />
         <item itemvalue="Python.crop" />
-        <item itemvalue="Python.crop2" />
+        <item itemvalue="Python.merge" />
       </list>
     </recent_temporary>
   </component>
@@ -180,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680175639171</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Jag har fixat med quaternion">
+      <created>1680219578520</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1680219578520</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -200,20 +235,61 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="testar" />
-    <option name="LAST_COMMIT_MESSAGE" value="testar" />
+    <MESSAGE value="Jag har fixat med quaternion" />
+    <option name="LAST_COMMIT_MESSAGE" value="Jag har fixat med quaternion" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/crop.py</url>
-          <line>10</line>
-          <option name="timeStamp" value="36" />
+          <line>51</line>
+          <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/crop.py</url>
+          <line>50</line>
+          <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/crop.py</url>
+          <line>49</line>
+          <option name="timeStamp" value="75" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/crop.py</url>
+          <line>48</line>
+          <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/crop.py</url>
+          <line>46</line>
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/crop.py</url>
+          <line>28</line>
+          <option name="timeStamp" value="78" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/crop.py</url>
+          <line>17</line>
+          <option name="timeStamp" value="80" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/crop.py</url>
+          <line>6</line>
+          <option name="timeStamp" value="81" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/newmerge.py</url>
-          <line>60</line>
-          <option name="timeStamp" value="49" />
+          <line>204</line>
+          <option name="timeStamp" value="93" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/newmerge.py</url>
+          <line>207</line>
+          <option name="timeStamp" value="94" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

@@ -3,20 +3,25 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 from Lamm import *
+import matplotlib as mpl
+mpl.use('Qt5Agg') # Så att man kan debugga samtidigt som ploten är uppe.
 
 plt.rcParams['figure.figsize'] = [8, 12]
 
-importfile = 'test'
-importfile2 = 'quat1'
+basepath = 'iscropped/'
+importfile = basepath + 'hometestlina_crop'
+importfile2 = basepath + 'hometestquat_crop'
 
-#importfile = 'testmed100hz.csv'
-#importfile2 = 'testmed100hzq.csv'
+"""
+importfile = 'hometest_linacc.csv'
+importfile2 = 'hometest_quat.csv'
+"""
 
 df_acc = pd.read_csv(importfile)
 df_gyro = pd.read_csv(importfile2)
-# print(df_acc.head(5))
-# print(df_gyro.head(5))
 
+# Gammal uppdatering
+""" 
 if any(df_acc.columns.values) == 'timestamp(+0100)':
     df_acc.pop('timestamp (+0100)')
     df_gyro.pop('timestamp (+0100)')
@@ -25,16 +30,22 @@ else:
     df_gyro.pop('timestamp (+0200)')
 df_acc.pop('epoc (ms)')
 df_gyro.pop('epoc (ms)')
-
+"""
+# Ny uppdatering 1.7.2
+df_acc.pop(df_acc.columns[0])
+df_acc.pop(df_acc.columns[0])
+df_gyro.pop(df_gyro.columns[0])
+df_gyro.pop(df_gyro.columns[0])
 table = pd.merge_asof(df_gyro, df_acc, on='elapsed (s)')
 
-table.iloc[:,5:]*=9.82
+table.iloc[:, 5:] *= 9.82
 
 # Korrigering
 iterfile = iter(table.iterrows())
 next(iterfile)
 
-table.iloc[:,5:]-=table.iloc[0,5:]
+# Detta tror jag är fel
+# table.iloc[:,5:]-=table.iloc[0,5:]
 """
 # vilken tid i början som ska försvinna
 for i, val in enumerate(iterfile):
@@ -47,98 +58,116 @@ for j in range(0, len(table.iloc[:,1])-i):
 """
 
 # Sätter w på rätt plats
-table = table[['elapsed (s)', 'x (number)', 'y (number)', 'z (number)','w (number)', 'x-axis (g)', 'y-axis (g)', 'z-axis (g)']]
+
+# Fel efter 1.7.2 -->: 'z (number)'--> ' z (number)' SE MELLANSLAGET
+
+table = table[
+    ['elapsed (s)', 'x (number)', 'y (number)', ' z (number)', 'w (number)', 'x-axis (g)', 'y-axis (g)', 'z-axis (g)']]
 
 time = table.iloc[:, 0]
-
-dt = time[1] - time[0]
 
 # Degrees value from quaternion
 acc = []
 for i, val in table.iterrows():
-    if sum(val[1:5])==0:
-        val[1]+=0.001
+    if sum(val[1:5]) == 0:
+        val[1] += 0.001
     r = R.from_quat(val[1:5])
-    #v = r.as_euler('zyx', degrees=True)
+    # v = r.as_euler('zyx', degrees=True)
     v = r.as_matrix()
 
     acc.append(np.dot(v, val[5:]))
 acc = np.asarray(acc)
 
-
-
 b = 0  # beta, rotation kring x-axel
 y = 0  # keppa rotation kring y-axel
 a = 0  # alfa, rotation kring z-axel
 
+ax = acc[:, 0]  # Framåt, positivt är frmaåt
+ay = acc[:, 1]  # Punktens sida är positiv (alltså höjdhopparens högra sida)
+az = acc[:, 2]  # Uppåt
 
-ax = [0]
-ay = [0]
-az = [0]
-ax_t = [0]
-ay_t = [0]
-az_t = [0]
+vx = [0]
+vy = [0]
+vz = [0]
 
-"""
 for i in np.arange((len(time)) - 1):
-    b = b + v[i][0] * (v[i+1][0] - v[i][0])
-    y = y + v[i][1] * (v[i+1][1] - v[i][1])
-    a = a + v[i][2] * (v[i+1][2] - v[i][2])
+    dt = time[i + 1] - time[i]
+
+    vx.append(vx[i] + ax[i] * dt)
+    vy.append(vy[i] + ay[i] * dt)
+    vz.append(vz[i] + az[i] * dt)
+
+# Functions ------------------------------------------------------------------------------------
+
+def localMinUtil(arr, low, high, n):
+    # Find index of middle element
+    mid = low + (high - low) // 2  # (low + high) // 2
+
+    # Compare middle element with its neighbours (if neighbours exist)
+    if ((mid == 0 or arr[mid - 1] > arr[mid]) and
+            (mid == n - 1 or arr[mid + 1] > arr[mid])):
+        return mid
+
+    # If middle element is not minima and its left neighbour is smaller than it, then left half must have a local minima.
+    elif (mid > 0 and arr[mid - 1] < arr[mid]):
+        return localMinUtil(arr, low, (mid - 1), n)
+
+    # If middle element is not minima and its right neighbour is smaller than it, then right half must have a local minima.
+    return localMinUtil(arr, (mid + 1), high, n)
 
 
-
-    ax_t = ax_t + [ax[-1] * ((np.cos(b) * np.cos(y)) + (np.cos(b) * np.sin(y)) - np.sin(b))]
-    ay_t = ay_t + [ay[-1] * ((np.sin(a) * np.sin(b) * np.cos(y) - np.cos(a) * np.sin(y)) + (
-            np.sin(a) * np.sin(b) * np.sin(y) + np.cos(a) * np.cos(y)) + (np.sin(a) * np.cos(b)))]
-    az_t = az_t + [az[-1] * ((np.cos(a) * np.sin(b) * np.cos(y) + np.sin(a) * np.sin(y)) + (
-            np.cos(a) * np.sin(b) * np.sin(y) - np.sin(a) * np.cos(y)) + (np.cos(a) * np.cos(b)))]
-
-"""
+# A wrapper over recursive function localMinUtil()
+def localMin(arr, n):
+    return localMinUtil(arr, 0, n - 1, n)
 
 
+def avgforce(between, yval):
+    valmin = yval[between[0]]
+    val = np.sum(abs(yval[between]))
+    return val
 
 
+# ---------------------------------------------------------------------------------------------
 
-
-
-
-
-
-
-
-
-
+# Plotting
 fig, axs = plt.subplots(3, 1)
 axs[0].grid()
 axs[1].grid()
 axs[2].grid()
-#axs[0].set_xlim([8, 9])
-#axs[1].set_xlim([8, 9])
-#axs[2].set_xlim([8, 9])
+# axs[0].set_xlim([8, 9])
+# axs[1].set_xlim([8, 9])
+# axs[2].set_xlim([8, 9])
 """
-axs[0].plot(table.iloc[:, 0], table.iloc[:, 5], 'r', label="ay")
-axs[0].plot(table.iloc[:, 0], table.iloc[:, 6], 'b', label="ax")
-axs[0].plot(table.iloc[:, 0], table.iloc[:, 7], 'g', label="az")
+axs[0].plot(time, table.iloc[:, 5], 'r', label="ay")
+axs[0].plot(time, table.iloc[:, 6], 'b', label="ax")
+axs[0].plot(time, table.iloc[:, 7], 'g', label="az")
 """
 
-axs[0].plot(table.iloc[:, 0], acc[:,0], 'r', label="ay")
-axs[0].plot(table.iloc[:, 0], acc[:,1], 'b', label="ax")
-axs[0].plot(table.iloc[:, 0], acc[:,2], 'g', label="az")
+axs[0].plot(time, ax, 'r', label="ax")
+axs[0].plot(time, ay, 'b', label="ay")
+axs[0].plot(time, az, 'g', label="az")
 
+axs[2].plot(time, vx, 'r', label="vx")
+axs[2].plot(time, vy, 'b', label="vy")
+axs[2].plot(time, vz, 'g', label="vz")
 
-totnorm = np.linalg.norm(table.iloc[:, 5:], axis=1)
+pos = pd.Series(vz).idxmax()
+posmin = pd.Series(vz).idxmin()
 
-pos = pd.Series(table.iloc[:, 5]).idxmax()
-posmin = pd.Series(table.iloc[:, 5]).idxmin()
+locminofpos = localMin(az[pos-20:pos+5], len(az[pos-20:pos+5]))+pos-20
 val = max(table.iloc[:, 5])
 
-between = range(pos - 5, pos + 7)
+between = range(locminofpos-10, pos + 7)
 
-axs[0].plot(table.iloc[between[0], 0], table.iloc[between[0], 5], '*')
-axs[0].annotate('Jump force starts', xy=(table.iloc[between[0], 0], table.iloc[between[0], 5]), xytext=(8, 3),
+axs[0].plot(time[between[0]], az[between[0]], '*')
+axs[0].annotate('Jump force starts', xy=(time[between[0]], az[between[0]]), xycoords='data',
+                xytext=(0.6, 0.11), textcoords='axes fraction',
+                va='top', ha='left',
                 arrowprops=dict(arrowstyle="->", connectionstyle="arc3"))
-axs[0].plot(table.iloc[between[-1], 0], table.iloc[between[-1], 5], '*')
-axs[0].annotate('Jump force ends', xy=(table.iloc[between[-1], 0], table.iloc[between[-1], 5]), xytext=(8.3, 3),
+axs[0].plot(time[between[-1]], az[between[-1]], '*')
+axs[0].annotate('Jump force ends', xy=(time[between[-1]], az[between[-1]]), xycoords='data',
+                xytext=(0.01, .99), textcoords='axes fraction',
+                va='top', ha='left',
                 arrowprops=dict(arrowstyle="->", connectionstyle="arc3"))
 
 num1 = range(pos + 20, pos + 30)
@@ -150,81 +179,30 @@ for i in num1:
         error = abs(value - 1)
         position = i
 
-#axs[0].axvline(table.iloc[position, 0])
-#axs[0].annotate(f'Highest position with force {error}', xy=(table.iloc[position, 0], table.iloc[position, 5]),xytext=(8.6, 3), arrowprops=dict(arrowstyle="->", connectionstyle="arc3"))
+# axs[0].axvline(table.iloc[position, 0])
+# axs[0].annotate(f'Highest position with force {error}', xy=(table.iloc[position, 0], table.iloc[position, 5]),xytext=(8.6, 3), arrowprops=dict(arrowstyle="->", connectionstyle="arc3"))
 plt.grid()
 axs[0].legend()
-#plt.xlim([8, 9])
+
+# plt.xlim([8, 9])
+
+# A Python program to find a local minima in an array
 
 
-def avgforce(between, yval):
-    valmin = yval[between[0]]
-    val = np.sum(abs(yval[between]))
-    return val
-
+totnorm = np.linalg.norm(table.iloc[:, 5:], axis=1)
 
 force = avgforce(between, totnorm)
 
-axs[1].plot(table.iloc[:, 0], totnorm)
+axs[1].plot(time, totnorm)
 axs[1].fill_between(table.iloc[between, 0], totnorm[between], color='blue', alpha=.5)
-axs[1].annotate(f'Rörelsemängd = {force}', xy=(table.iloc[between[6], 0], table.iloc[between[6], 5]), xytext=(8.2, 3),
+axs[1].annotate(f'Rörelsemängd = {force}', xy=(time[between[3]], ax[between[3]]), xycoords='data',
+                xytext=(0.01, .8), textcoords='axes fraction',
+                va='top', ha='left',
                 arrowprops=dict(arrowstyle="->", connectionstyle="arc3"))
 
-# Gyroscope
-
-
-
-
-
-
-
-
-# Integrering
-
-vx = [0]
-vy = [0]
-vz = [0]
-vx_t = [0]
-vy_t = [0]
-vz_t = [0]
-
-b = 0  # beta, rotation kring x-axel
-y = 0  # keppa rotation kring y-axel
-a = 0  # alfa, rotation kring z-axel
-
-for i in np.arange((len(time)) - 1):
-    b = b + v[i][0] * (v[i+1][0] - v[i][0])
-    y = y + v[i][1] * (v[i+1][1] - v[i][1])
-    a = a + v[i][2] * (v[i+1][2] - v[i][2])
-
-    # y = y + table.iloc[:, 3][i] * (time[i + 1] - time[i])
-    # a = a + table.iloc[:, 4][i] * (time[i + 1] - time[i])
-
-    vx = vx + [vx[-1] + table.iloc[:, 5][i] * (time[i + 1] - time[i])]
-    vy = vy + [vy[-1] + table.iloc[:, 6][i] * (time[i + 1] - time[i])]
-    vz = vz + [vz[-1] + table.iloc[:, 7][i] * (time[i + 1] - time[i])]
-
-    vx_t = vx_t + [vx[-1] * ((np.cos(b) * np.cos(y)) + (np.cos(b) * np.sin(y)) - np.sin(b))]
-    vy_t = vy_t + [vy[-1] * ((np.sin(a) * np.sin(b) * np.cos(y) - np.cos(a) * np.sin(y)) + (
-            np.sin(a) * np.sin(b) * np.sin(y) + np.cos(a) * np.cos(y)) + (np.sin(a) * np.cos(b)))]
-    vz_t = vz_t + [vz[-1] * ((np.cos(a) * np.sin(b) * np.cos(y) + np.sin(a) * np.sin(y)) + (
-            np.cos(a) * np.sin(b) * np.sin(y) - np.sin(a) * np.cos(y)) + (np.cos(a) * np.cos(b)))]
-
-axs[2].plot(time, vx_t, 'r', label="vx")
-axs[2].plot(time, vy_t, 'b', label="vy")
-axs[2].plot(time, vz_t, 'g', label="vz")
-
-error = 1000
-for i in num1:
-    value = sum([vx_t[i], vy_t[i], vz_t[i]])
-    if abs(value) < error:
-        errorv = abs(value - 1)
-        positionv = i
-
-#axs[2].plot(time[positionv], vy_t[positionv], 'o')
-
-# get_positions(table, 0, 0, 0, 0, 0, 0, 100)
 
 axs[2].grid()
 axs[2].legend()
 plt.show()
+
+pass
