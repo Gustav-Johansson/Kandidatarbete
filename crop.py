@@ -13,11 +13,28 @@ for csvfile in csvfiles:
 
 basepath = 'needstobecropped/'
 endpath = 'iscropped/'
+aa = ''
+bb = ''
+cc = ''
+dd = ''
+ee = ''
+ff = ''
 with os.scandir(basepath) as entries:
     for entry in entries:
         if entry.is_file():
             inname = f'{basepath}{entry.name}'
-            outname = endpath+entry.name.split('_')[0]+inname.split('/')[1].split('_')[1][:4]+'_crop'
+            if len(entry.name.split('_')) == 6:
+                a, b, c, d, e, f = entry.name.split('_')
+                if a == aa and b == bb and e == 'Linear Acceleration':
+                    acciterval = iterval
+                elif e == 'Quaternion':
+                    pass
+                else:
+                    acciterval = 0
+                outname = endpath+a+b+e[:3]+'_c.csv'
+            else:
+                outname = endpath + entry.name + '_c.csv'
+                acciterval = 0
             with open(inname, 'r', newline='') as file, open(outname, 'w',newline='') as outFile:
                 reader = csv.reader(file, delimiter=',')
                 writer = csv.writer(outFile, delimiter=',')
@@ -29,26 +46,17 @@ with os.scandir(basepath) as entries:
                 accelerations = np.asarray(accelerations)
 
                 for i, val in enumerate(accelerations):
-                    if float(val[2]) > 4 and np.sqrt(float(val[3]) ** 2 + float(val[4]) ** 2 + float(val[5]) ** 2) > 0.2:
+                    if i <= acciterval:
+                        continue
+                    if e == 'Linear Acceleration' and float(val[2]) > 4 and np.sqrt(float(val[3]) ** 2 + float(val[4]) ** 2 + float(val[5]) ** 2) > 0.1:
                         break
+                    elif e != 'Linear Acceleration':
+                        break
+                if e == 'Quaternion':
+                    i += 50
                 iterval = i - 50 # Tar bort
-                itervalend = len(accelerations)-300 # Tar bort 3s från slutet
+                itervalend = len(accelerations)-200 # Tar bort 3s från slutet
                 writer.writerows(accelerations[iterval:itervalend])
 
-
-
-
-
-
-
-"""
-                    if float(row[2]) > 5:
-                        if np.sqrt(float(row[3])**2 + float(row[4])**2 + float(row[5])**2) > 1 and trueplacer:
-                            trueplacer = False
-                            truetime = float(row[2])
-
-                reader.line_num = 0
-                for rowi in reader:
-                    if float(rowi[2]) >= truetime-4:
-                        writer.writerow(rowi)
-"""
+                if e == 'Linear Acceleration':
+                    acciterval = iterval

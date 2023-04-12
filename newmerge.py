@@ -6,11 +6,11 @@ from Lamm import *
 import matplotlib as mpl
 mpl.use('Qt5Agg') # Så att man kan debugga samtidigt som ploten är uppe.
 
-plt.rcParams['figure.figsize'] = [8, 12]
+plt.rcParams['figure.figsize'] = [10, 10]
 
 basepath = 'iscropped/'
-importfile = basepath + 'hometestlina_crop'
-importfile2 = basepath + 'hometestquat_crop'
+importfile = basepath + 'bothmegagoodIMU1 Lin_c.csv'
+importfile2 = basepath + 'bothmegagoodIMU1 Qua_c.csv'
 
 """
 importfile = 'hometest_linacc.csv'
@@ -38,33 +38,16 @@ df_gyro.pop(df_gyro.columns[0])
 df_gyro.pop(df_gyro.columns[0])
 table = pd.merge_asof(df_gyro, df_acc, on='elapsed (s)')
 
+# Gör om till m/s^2
 table.iloc[:, 5:] *= 9.82
-
-# Korrigering
-iterfile = iter(table.iterrows())
-next(iterfile)
 
 # Detta tror jag är fel
 # table.iloc[:,5:]-=table.iloc[0,5:]
-"""
-# vilken tid i början som ska försvinna
-for i, val in enumerate(iterfile):
-    if sum(abs(table.iloc[i,5:])) < 1.5:
-        continue
-    else:
-        break
-for j in range(0, len(table.iloc[:,1])-i):
-        table.iloc[j, :] = table.iloc[i+j, :]
-"""
 
 # Sätter w på rätt plats
-
 # Fel efter 1.7.2 -->: 'z (number)'--> ' z (number)' SE MELLANSLAGET
-
 table = table[
     ['elapsed (s)', 'x (number)', 'y (number)', ' z (number)', 'w (number)', 'x-axis (g)', 'y-axis (g)', 'z-axis (g)']]
-
-time = table.iloc[:, 0]
 
 # Degrees value from quaternion
 acc = []
@@ -78,17 +61,19 @@ for i, val in table.iterrows():
     acc.append(np.dot(v, val[5:]))
 acc = np.asarray(acc)
 
-b = 0  # beta, rotation kring x-axel
-y = 0  # keppa rotation kring y-axel
-a = 0  # alfa, rotation kring z-axel
-
 ax = acc[:, 0]  # Framåt, positivt är frmaåt
 ay = acc[:, 1]  # Punktens sida är positiv (alltså höjdhopparens högra sida)
 az = acc[:, 2]  # Uppåt
 
+time = table.iloc[:, 0]
+
 vx = [0]
 vy = [0]
 vz = [0]
+
+x = [0]
+y = [0]
+z = [0]
 
 for i in np.arange((len(time)) - 1):
     dt = time[i + 1] - time[i]
@@ -96,6 +81,10 @@ for i in np.arange((len(time)) - 1):
     vx.append(vx[i] + ax[i] * dt)
     vy.append(vy[i] + ay[i] * dt)
     vz.append(vz[i] + az[i] * dt)
+
+    x.append(x[i] + vx[i] * dt + (ax[i] * dt**2)/2)
+    y.append(y[i] + vy[i] * dt + (ay[i] * dt**2)/2)
+    z.append(z[i] + vz[i] * dt + (az[i] * dt**2)/2)
 
 # Functions ------------------------------------------------------------------------------------
 
@@ -130,10 +119,11 @@ def avgforce(between, yval):
 # ---------------------------------------------------------------------------------------------
 
 # Plotting
-fig, axs = plt.subplots(3, 1)
+fig, axs = plt.subplots(4, 1)
 axs[0].grid()
 axs[1].grid()
 axs[2].grid()
+axs[3].grid()
 # axs[0].set_xlim([8, 9])
 # axs[1].set_xlim([8, 9])
 # axs[2].set_xlim([8, 9])
@@ -151,13 +141,18 @@ axs[2].plot(time, vx, 'r', label="vx")
 axs[2].plot(time, vy, 'b', label="vy")
 axs[2].plot(time, vz, 'g', label="vz")
 
+axs[3].plot(x, y, 'r', label="Kurvlöpning")
+axs[3].plot(time, z, 'g', label="z")
+
+
 pos = pd.Series(vz).idxmax()
 posmin = pd.Series(vz).idxmin()
 
-locminofpos = localMin(az[pos-20:pos+5], len(az[pos-20:pos+5]))+pos-20
+rangevallow = 10
+locminofpos = localMin(az[pos-rangevallow:pos+5], len(az[pos-rangevallow:pos+5]))+pos-20
 val = max(table.iloc[:, 5])
 
-between = range(locminofpos-10, pos + 7)
+between = range(locminofpos-rangevallow, pos + 7)
 
 axs[0].plot(time[between[0]], az[between[0]], '*')
 axs[0].annotate('Jump force starts', xy=(time[between[0]], az[between[0]]), xycoords='data',
