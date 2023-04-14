@@ -2,36 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f87f66d-57dd-403b-9c94-09657787cda2" name="Changes" comment="Gjort lite mer">
-      <change afterPath="$PROJECT_DIR$/iscropped/bothmegagoodIMU1 Lin_c.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iscropped/bothmegagoodIMU1 Qua_c.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iscropped/bothmegagoodIMU2Lin_c.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iscropped/bothmegagoodIMU2Qua_c.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iscropped/configtest1LinAcc.csvcon_c.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iscropped/configtest1Quat.csvcon_c.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iscropped/configtest2linacc.csvcon_c.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iscropped/configtest2quat.csvcon_c.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iscropped/hometestlinacc.csvhom_c.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iscropped/hometestquat.csvhom_c.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crop.py" beforeDir="false" afterPath="$PROJECT_DIR$/crop.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iscropped/configtest1LinA_crop" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/iscropped/configtest1LinAcrop_crop" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/iscropped/configtest1Quat_crop" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/iscropped/configtest1Quatcrop_crop" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/iscropped/configtest2lina_crop" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/iscropped/configtest2linacrop_crop" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/iscropped/configtest2quat_crop" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/iscropped/configtest2quatcrop_crop" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/iscropped/hometestlina_crop" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/iscropped/hometestquat_crop" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/iscropped/needcrop_crop" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/iscropped/needcropcrop_crop" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/needstobecropped/configtest1LinA_cropped" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/needstobecropped/configtest1Quat_cropped" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/needstobecropped/configtest2lina_cropped" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/needstobecropped/configtest2quat_cropped" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/needstobecropped/need_cropped" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/needstobecropped/needcrop_cropped" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/bothmegagoodIMU1 Lin_c.csv" beforeDir="false" afterPath="$PROJECT_DIR$/iscropped/bothmegagoodIMU1 Lin_c.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/bothmegagoodIMU1 Qua_c.csv" beforeDir="false" afterPath="$PROJECT_DIR$/iscropped/bothmegagoodIMU1 Qua_c.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/bothmegagoodIMU2Lin_c.csv" beforeDir="false" afterPath="$PROJECT_DIR$/iscropped/bothmegagoodIMU2Lin_c.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/bothmegagoodIMU2Qua_c.csv" beforeDir="false" afterPath="$PROJECT_DIR$/iscropped/bothmegagoodIMU2Qua_c.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/configtest1_LinAcc.csv_c.csv" beforeDir="false" afterPath="$PROJECT_DIR$/iscropped/configtest1_LinAcc.csv_c.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/configtest1_Quat.csv_c.csv" beforeDir="false" afterPath="$PROJECT_DIR$/iscropped/configtest1_Quat.csv_c.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/configtest2_linacc.csv_c.csv" beforeDir="false" afterPath="$PROJECT_DIR$/iscropped/configtest2_linacc.csv_c.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/configtest2_quat.csv_c.csv" beforeDir="false" afterPath="$PROJECT_DIR$/iscropped/configtest2_quat.csv_c.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/hometest_linacc.csv_c.csv" beforeDir="false" afterPath="$PROJECT_DIR$/iscropped/hometest_linacc.csv_c.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/hometest_quat.csv_c.csv" beforeDir="false" afterPath="$PROJECT_DIR$/iscropped/hometest_quat.csv_c.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/newmerge.py" beforeDir="false" afterPath="$PROJECT_DIR$/newmerge.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,6 +57,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Python Scripts" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -228,7 +211,21 @@
       <option name="project" value="LOCAL" />
       <updated>1681077610402</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Gjort lite mer">
+      <created>1681336330561</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1681336330561</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Gjort lite mer">
+      <created>1681336346662</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1681336346662</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -257,13 +254,8 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/crop.py</url>
-          <line>6</line>
-          <option name="timeStamp" value="81" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/newmerge.py</url>
-          <line>198</line>
+          <line>193</line>
           <option name="timeStamp" value="93" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -273,28 +265,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/newmerge.py</url>
-          <line>150</line>
+          <line>145</line>
           <option name="timeStamp" value="95" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/newmerge.py</url>
-          <line>53</line>
-          <option name="timeStamp" value="99" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/newmerge.py</url>
-          <line>34</line>
-          <option name="timeStamp" value="100" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/crop.py</url>
-          <line>27</line>
-          <option name="timeStamp" value="102" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/crop.py</url>
-          <line>56</line>
-          <option name="timeStamp" value="105" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

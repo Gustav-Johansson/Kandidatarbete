@@ -1,42 +1,51 @@
-import csv
-import numpy as np
-import matplotlib.pyplot as plt
 import pandas as pd
-from Lamm import *
+import numpy as np
+from scipy.spatial.transform import Rotation as R
+from crop import crop
+import matplotlib.pyplot as plt
 import matplotlib as mpl
 mpl.use('Qt5Agg') # Så att man kan debugga samtidigt som ploten är uppe.
-
 plt.rcParams['figure.figsize'] = [10, 10]
 
-basepath = 'iscropped/'
-importfile = basepath + 'bothmegagoodIMU1 Lin_c.csv'
-importfile2 = basepath + 'bothmegagoodIMU1 Qua_c.csv'
 
-"""
-importfile = 'hometest_linacc.csv'
-importfile2 = 'hometest_quat.csv'
-"""
+basepath = 'needstobecropped/'
+endpath = 'iscropped/'
+entries = crop(basepath, endpath)
 
+
+importfile = entries[0]
+importfile2 = entries[1]
+importfile3 = entries[2]
+importfile4 = entries[3]
+
+
+# ---------------------------------- Program starts -------------------------
 df_acc = pd.read_csv(importfile)
 df_gyro = pd.read_csv(importfile2)
+df_acc2 = pd.read_csv(importfile3)
+df_gyro2 = pd.read_csv(importfile4)
 
-# Gammal uppdatering
-""" 
-if any(df_acc.columns.values) == 'timestamp(+0100)':
-    df_acc.pop('timestamp (+0100)')
-    df_gyro.pop('timestamp (+0100)')
-else:
-    df_acc.pop('timestamp (+0200)')
-    df_gyro.pop('timestamp (+0200)')
-df_acc.pop('epoc (ms)')
-df_gyro.pop('epoc (ms)')
-"""
 # Ny uppdatering 1.7.2
-df_acc.pop(df_acc.columns[0])
-df_acc.pop(df_acc.columns[0])
-df_gyro.pop(df_gyro.columns[0])
-df_gyro.pop(df_gyro.columns[0])
-table = pd.merge_asof(df_gyro, df_acc, on='elapsed (s)')
+df_acc.pop(df_acc.columns[1])
+
+df_gyro.pop(df_gyro.columns[1])
+
+
+df_acc2.pop(df_acc2.columns[1])
+
+df_gyro2.pop(df_gyro2.columns[1])
+
+
+interpolacc = (df_acc.iloc[:]+df_acc2.iloc[:])/2
+interpolQua = (df_gyro.iloc[:]+df_gyro2.iloc[:])/2
+interpolacc = interpolacc.dropna()
+interpolQua = interpolQua.dropna()
+
+table = pd.merge_asof(interpolQua, interpolacc, on=df_acc.columns[0])
+table.pop(table.columns[0])
+table.pop(table.columns[5])
+
+table = table.dropna()
 
 # Gör om till m/s^2
 table.iloc[:, 5:] *= 9.82
@@ -47,16 +56,14 @@ table.iloc[:, 5:] *= 9.82
 # Sätter w på rätt plats
 # Fel efter 1.7.2 -->: 'z (number)'--> ' z (number)' SE MELLANSLAGET
 table = table[
-    ['elapsed (s)', 'x (number)', 'y (number)', ' z (number)', 'w (number)', 'x-axis (g)', 'y-axis (g)', 'z-axis (g)']]
+    [table.columns[0], 'x (number)', 'y (number)', ' z (number)', 'w (number)', 'x-axis (g)', 'y-axis (g)', 'z-axis (g)']]
 
 # Degrees value from quaternion
 acc = []
 for i, val in table.iterrows():
     if sum(val[1:5]) == 0:
         val[1] += 0.001
-    r = R.from_quat(val[1:5])
-    # v = r.as_euler('zyx', degrees=True)
-    v = r.as_matrix()
+    v = R.from_quat(val[1:5]).as_matrix()
 
     acc.append(np.dot(v, val[5:]))
 acc = np.asarray(acc)
@@ -119,19 +126,10 @@ def avgforce(between, yval):
 # ---------------------------------------------------------------------------------------------
 
 # Plotting
-fig, axs = plt.subplots(4, 1)
+fig, axs = plt.subplots(3, 1)
 axs[0].grid()
 axs[1].grid()
 axs[2].grid()
-axs[3].grid()
-# axs[0].set_xlim([8, 9])
-# axs[1].set_xlim([8, 9])
-# axs[2].set_xlim([8, 9])
-"""
-axs[0].plot(time, table.iloc[:, 5], 'r', label="ay")
-axs[0].plot(time, table.iloc[:, 6], 'b', label="ax")
-axs[0].plot(time, table.iloc[:, 7], 'g', label="az")
-"""
 
 axs[0].plot(time, ax, 'r', label="ax")
 axs[0].plot(time, ay, 'b', label="ay")
@@ -140,10 +138,6 @@ axs[0].plot(time, az, 'g', label="az")
 axs[2].plot(time, vx, 'r', label="vx")
 axs[2].plot(time, vy, 'b', label="vy")
 axs[2].plot(time, vz, 'g', label="vz")
-
-axs[3].plot(x, y, 'r', label="Kurvlöpning")
-axs[3].plot(time, z, 'g', label="z")
-
 
 pos = pd.Series(vz).idxmax()
 posmin = pd.Series(vz).idxmin()
@@ -198,6 +192,11 @@ axs[1].annotate(f'Rörelsemängd = {force}', xy=(time[between[3]], ax[between[3]
 
 axs[2].grid()
 axs[2].legend()
+plt.show()
+
+
+ax = plt.figure().add_subplot(projection='3d')
+ax.plot(x, y, z, 'r', label="Kurvlöpning")
 plt.show()
 
 pass
