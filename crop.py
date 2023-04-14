@@ -37,7 +37,7 @@ def crop(basepath, endpath):
                         if i <= acciterval:
                             continue
                         if e == 'Linear Acceleration' and float(val[2]) > 4 and np.sqrt(
-                                float(val[3]) ** 2 + float(val[4]) ** 2 + float(val[5]) ** 2) > 0.1:
+                                float(val[3]) ** 2 + float(val[4]) ** 2 + float(val[5]) ** 2) > 0.3:
                             break
                         elif e != 'Linear Acceleration':
                             break
