@@ -11,6 +11,7 @@ plt.rcParams['figure.figsize'] = [10, 10]
 basepath = 'needstobecropped/'
 endpath = 'iscropped/'
 entries = crop(basepath, endpath)
+weight = 86
 
 
 importfile = entries[0]
@@ -48,7 +49,7 @@ table.pop(table.columns[5])
 table = table.dropna()
 
 # Gör om till m/s^2
-table.iloc[:, 5:] *= 9.82
+table.iloc[:, 5:] *= 9.82 * weight
 
 # Detta tror jag är fel
 # table.iloc[:,5:]-=table.iloc[0,5:]
@@ -184,7 +185,7 @@ force = avgforce(between, totnorm)
 
 axs[1].plot(time, totnorm)
 axs[1].fill_between(table.iloc[between, 0], totnorm[between], color='blue', alpha=.5)
-axs[1].annotate(f'Rörelsemängd = {force}', xy=(time[between[3]], ax[between[3]]), xycoords='data',
+axs[1].annotate(f'Impuls = {force}', xy=(time[between[3]], ax[between[3]]), xycoords='data',
                 xytext=(0.01, .8), textcoords='axes fraction',
                 va='top', ha='left',
                 arrowprops=dict(arrowstyle="->", connectionstyle="arc3"))
