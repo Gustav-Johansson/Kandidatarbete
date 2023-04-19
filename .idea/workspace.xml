@@ -2,69 +2,194 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f87f66d-57dd-403b-9c94-09657787cda2" name="Changes" comment="Gjort lite mer">
-      <change afterPath="$PROJECT_DIR$/iscropped/bothgood1IMU1 Lin_c.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iscropped/bothgood1IMU1 Qua_c.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iscropped/bothgood1IMU2Lin_c.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/iscropped/bothgood1IMU2Qua_c.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/needstobecropped/bothgood2_IMU1 _2023-04-12T12.24.22.925_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/needstobecropped/bothgood2_IMU1 _2023-04-12T12.24.22.925_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/needstobecropped/bothgood2_IMU2_2023-04-12T12.24.22.925_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/needstobecropped/bothgood2_IMU2_2023-04-12T12.24.22.925_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newdata/both1/both1_IMU1 _2023-04-12T11.54.31.242_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newdata/both1/both1_IMU1 _2023-04-12T11.54.31.242_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newdata/both1/both1_IMU2_2023-04-12T11.54.31.242_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newdata/both1/both1_IMU2_2023-04-12T11.54.31.242_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newdata/both2/both2_IMU1 _2023-04-12T11.56.40.260_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newdata/both2/both2_IMU1 _2023-04-12T11.56.40.260_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newdata/both2/both2_IMU2_2023-04-12T11.56.40.260_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newdata/both2/both2_IMU2_2023-04-12T11.56.40.260_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newdata/both3/both3_IMU1 _2023-04-12T11.57.55.059_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newdata/both3/both3_IMU1 _2023-04-12T11.57.55.059_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newdata/both3/both3_IMU2_2023-04-12T11.57.55.059_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newdata/both3/both3_IMU2_2023-04-12T11.57.55.059_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newdata/both4/both4_IMU1 _2023-04-12T11.59.23.088_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newdata/both4/both4_IMU1 _2023-04-12T11.59.23.088_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newdata/both4/both4_IMU2_2023-04-12T11.59.23.088_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newdata/both4/both4_IMU2_2023-04-12T11.59.23.088_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newdata/bothgood1/bothgood1_IMU1 _2023-04-12T12.21.53.069_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newdata/bothgood1/bothgood1_IMU1 _2023-04-12T12.21.53.069_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newdata/bothgood1/bothgood1_IMU2_2023-04-12T12.21.53.069_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newdata/bothgood1/bothgood1_IMU2_2023-04-12T12.21.53.069_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newdata/bothgood2/bothgood2_IMU1 _2023-04-12T12.24.22.925_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newdata/bothgood2/bothgood2_IMU1 _2023-04-12T12.24.22.925_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newdata/bothgood2/bothgood2_IMU2_2023-04-12T12.24.22.925_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newdata/bothgood2/bothgood2_IMU2_2023-04-12T12.24.22.925_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newdata/jamfota1/jamfota1_IMU1 _2023-04-12T12.01.31.849_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newdata/jamfota1/jamfota1_IMU1 _2023-04-12T12.01.31.849_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newdata/jamfota1/jamfota1_IMU2_2023-04-12T12.01.31.849_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/newdata/jamfota1/jamfota1_IMU2_2023-04-12T12.01.31.849_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik10_IMU1 _2023-04-18T13.40.56.757_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik10_IMU1 _2023-04-18T13.40.56.757_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik10_IMU2_2023-04-18T13.40.56.757_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik10_IMU2_2023-04-18T13.40.56.757_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik1_IMU1 _2023-04-18T13.14.58.901_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik1_IMU1 _2023-04-18T13.14.58.901_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik1_IMU2_2023-04-18T13.14.58.901_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik1_IMU2_2023-04-18T13.14.58.901_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik2_IMU1 _2023-04-18T13.22.39.772_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik2_IMU1 _2023-04-18T13.22.39.772_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik2_IMU2_2023-04-18T13.22.39.772_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik2_IMU2_2023-04-18T13.22.39.772_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik3_IMU1 _2023-04-18T13.26.58.134_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik3_IMU1 _2023-04-18T13.26.58.134_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik3_IMU2_2023-04-18T13.26.58.134_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik3_IMU2_2023-04-18T13.26.58.134_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik4_IMU1 _2023-04-18T13.28.56.842_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik4_IMU1 _2023-04-18T13.28.56.842_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik4_IMU2_2023-04-18T13.28.56.842_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik4_IMU2_2023-04-18T13.28.56.842_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik5_IMU1 _2023-04-18T13.30.17.521_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik5_IMU1 _2023-04-18T13.30.17.521_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik5_IMU2_2023-04-18T13.30.17.521_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik5_IMU2_2023-04-18T13.30.17.521_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik6_IMU1 _2023-04-18T13.34.47.405_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik6_IMU1 _2023-04-18T13.34.47.405_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik6_IMU2_2023-04-18T13.34.47.405_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik6_IMU2_2023-04-18T13.34.47.405_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik7_IMU1 _2023-04-18T13.36.17.179_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik7_IMU1 _2023-04-18T13.36.17.179_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik7_IMU2_2023-04-18T13.36.17.179_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik7_IMU2_2023-04-18T13.36.17.179_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik8_IMU1 _2023-04-18T13.37.42.902_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik8_IMU1 _2023-04-18T13.37.42.902_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik8_IMU2_2023-04-18T13.37.42.902_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik8_IMU2_2023-04-18T13.37.42.902_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik9_IMU1 _2023-04-18T13.39.25.917_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik9_IMU1 _2023-04-18T13.39.25.917_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik9_IMU2_2023-04-18T13.39.25.917_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/erik9_IMU2_2023-04-18T13.39.25.917_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav10_IMU1 _2023-04-18T13.55.19.332_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav10_IMU1 _2023-04-18T13.55.19.332_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav10_IMU2_2023-04-18T13.55.19.332_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav10_IMU2_2023-04-18T13.55.19.332_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav11_IMU1 _2023-04-18T13.58.17.301_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav11_IMU1 _2023-04-18T13.58.17.301_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav11_IMU2_2023-04-18T13.58.17.301_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav11_IMU2_2023-04-18T13.58.17.301_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav2_IMU1 _2023-04-18T13.45.10.397_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav2_IMU1 _2023-04-18T13.45.10.397_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav2_IMU2_2023-04-18T13.45.10.397_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav2_IMU2_2023-04-18T13.45.10.397_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav3_IMU1 _2023-04-18T13.46.47.792_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav3_IMU1 _2023-04-18T13.46.47.792_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav3_IMU2_2023-04-18T13.46.47.792_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav3_IMU2_2023-04-18T13.46.47.792_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav4_IMU1 _2023-04-18T13.48.11.127_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav4_IMU1 _2023-04-18T13.48.11.127_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav4_IMU2_2023-04-18T13.48.11.127_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav4_IMU2_2023-04-18T13.48.11.127_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav5_IMU1 _2023-04-18T13.49.32.189_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav5_IMU1 _2023-04-18T13.49.32.189_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav5_IMU2_2023-04-18T13.49.32.189_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav5_IMU2_2023-04-18T13.49.32.189_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav6_IMU1 _2023-04-18T13.50.56.852_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav6_IMU1 _2023-04-18T13.50.56.852_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav6_IMU2_2023-04-18T13.50.56.852_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav6_IMU2_2023-04-18T13.50.56.852_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav7_IMU1 _2023-04-18T13.52.19.415_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav7_IMU1 _2023-04-18T13.52.19.415_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav7_IMU2_2023-04-18T13.52.19.415_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav7_IMU2_2023-04-18T13.52.19.415_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav9_IMU1 _2023-04-18T13.53.38.317_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav9_IMU1 _2023-04-18T13.53.38.317_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav9_IMU2_2023-04-18T13.53.38.317_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/gustav9_IMU2_2023-04-18T13.53.38.317_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan0_IMU1 _2023-04-18T14.04.25.649_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan0_IMU1 _2023-04-18T14.04.25.649_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan0_IMU2_2023-04-18T14.04.25.649_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan0_IMU2_2023-04-18T14.04.25.649_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan1_IMU1 _2023-04-18T13.43.48.679_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan1_IMU1 _2023-04-18T13.43.48.679_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan1_IMU2_2023-04-18T13.43.48.679_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan1_IMU2_2023-04-18T13.43.48.679_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan2_IMU1 _2023-04-18T14.07.33.883_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan2_IMU1 _2023-04-18T14.07.33.883_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan2_IMU2_2023-04-18T14.07.33.883_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan2_IMU2_2023-04-18T14.07.33.883_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan3_IMU1 _2023-04-18T14.10.31.616_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan3_IMU1 _2023-04-18T14.10.31.616_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan3_IMU2_2023-04-18T14.10.31.616_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan3_IMU2_2023-04-18T14.10.31.616_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan4_IMU1 _2023-04-18T14.13.22.119_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan4_IMU1 _2023-04-18T14.13.22.119_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan4_IMU2_2023-04-18T14.13.22.119_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan4_IMU2_2023-04-18T14.13.22.119_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan5_IMU1 _2023-04-18T14.14.37.758_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan5_IMU1 _2023-04-18T14.14.37.758_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan5_IMU2_2023-04-18T14.14.37.758_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan5_IMU2_2023-04-18T14.14.37.758_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan6_IMU1 _2023-04-18T14.15.43.477_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan6_IMU1 _2023-04-18T14.15.43.477_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan6_IMU2_2023-04-18T14.15.43.477_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan6_IMU2_2023-04-18T14.15.43.477_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan7_IMU1 _2023-04-18T14.16.45.848_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan7_IMU1 _2023-04-18T14.16.45.848_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan7_IMU2_2023-04-18T14.16.45.848_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan7_IMU2_2023-04-18T14.16.45.848_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan8_IMU1 _2023-04-18T14.18.13.540_DED8E217A5EE_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan8_IMU1 _2023-04-18T14.18.13.540_DED8E217A5EE_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan8_IMU2_2023-04-18T14.18.13.540_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan8_IMU2_2023-04-18T14.18.13.540_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan9_IMU2_2023-04-18T14.19.24.341_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMU1/johan9_IMU2_2023-04-18T14.19.24.341_CFFE2E15FC84_Quaternion_1.7.2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/Measurement25.qtm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/Measurement25_1.qtm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/Measurement27.qtm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/Measurement29.qtm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/Measurement31.qtm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/Measurement33.qtm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/Measurement35.qtm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/Measurement37.qtm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/Measurement39.qtm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/Measurement4.qtm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/Measurement41.qtm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/Measurement43.qtm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/Measurement45 (Gustav).qtm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/Measurement47 (Gustav).qtm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/Measurement49 (Gustav).qtm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/Measurement51 (Gustav).qtm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/Measurement53 (Gustav).qtm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/Measurement55 (Gustav).qtm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/Measurement57 (Gustav).qtm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/Measurement59 (Gustav).qtm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/Measurement61 (Gustav).qtm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/Measurement63 (Gustav).qtm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/Measurement65 (Johan).qtm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/Measurement67 (Johan).qtm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/Measurement69 (Johan).qtm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/Measurement71 (Johan).qtm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/Measurement73 (Johan).qtm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/Measurement75 (Johan).qtm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/Measurement77 (Johan).qtm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/Measurement79 (Johan).qtm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/Measurement83 (Johan).qtm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/erik0_acc.tsv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMUhopp/test/Settings.qtmproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cropbackup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/erik0_acc.tsv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iscropped/both1 Lin_c.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iscropped/both1 Qua_c.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iscropped/both12Lin_c.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iscropped/both12Qua_c.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datainsamling/Smilla/both/IMU1_2023-03-29T15.28.02.680_DED8E217A5EE_Gravity.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datainsamling/Smilla/both/IMU1_2023-03-29T15.28.02.680_DED8E217A5EE_Quaternion.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datainsamling/Smilla/both/IMU2_2023-03-29T15.28.02.680_CFFE2E15FC84_Gravity.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datainsamling/Smilla/both/IMU2_2023-03-29T15.28.02.680_CFFE2E15FC84_Quaternion.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datainsamling/Smilla/both/IMU2_crop_G" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datainsamling/Smilla/both/IMU2_crop_G.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datainsamling/Smilla/right/IMU1_2023-03-29T15.02.38.867_DED8E217A5EE_Gravity.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datainsamling/Smilla/right/IMU1_2023-03-29T15.02.38.867_DED8E217A5EE_Quaternion.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lamm.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Quat_cropped" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Quaterniontest.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Quattest" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crop.py" beforeDir="false" afterPath="$PROJECT_DIR$/crop.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gustav_quatkod.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/iscropped/bothmegagoodIMU1 Lin_c.csv" beforeDir="false" afterPath="$PROJECT_DIR$/iscropped/bothmegagoodIMU1 Lin_c.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iscropped/bothmegagoodIMU1 Qua_c.csv" beforeDir="false" afterPath="$PROJECT_DIR$/iscropped/bothmegagoodIMU1 Qua_c.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iscropped/bothmegagoodIMU2Lin_c.csv" beforeDir="false" afterPath="$PROJECT_DIR$/iscropped/bothmegagoodIMU2Lin_c.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iscropped/bothmegagoodIMU2Qua_c.csv" beforeDir="false" afterPath="$PROJECT_DIR$/iscropped/bothmegagoodIMU2Qua_c.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/merge.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/bothgood1IMU1 Lin_c.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/bothgood1IMU1 Qua_c.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/bothgood1IMU2Lin_c.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/bothgood1IMU2Qua_c.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/bothgood2IMU1 Lin_c.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/bothgood2IMU1 Qua_c.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/bothgood2IMU2Lin_c.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/bothgood2IMU2Qua_c.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/bothmegagoodIMU1 Lin_c.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/bothmegagoodIMU1 Qua_c.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/bothmegagoodIMU2Lin_c.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/bothmegagoodIMU2Qua_c.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/configtest1LinAcc.csvcon_c.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/configtest1Quat.csvcon_c.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/configtest1_LinAcc.csv_c.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/configtest1_Quat.csv_c.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/configtest2_linacc.csv_c.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/configtest2_quat.csv_c.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/configtest2linacc.csvcon_c.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/configtest2quat.csvcon_c.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/hometest_linacc.csv_c.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/hometest_quat.csv_c.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/hometestlinacc.csvhom_c.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iscropped/hometestquat.csvhom_c.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/needstobecropped/bothgood2_IMU1 _2023-04-12T12.24.22.925_DED8E217A5EE_Linear Acceleration_1.7.2.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/needstobecropped/bothgood2_IMU1 _2023-04-12T12.24.22.925_DED8E217A5EE_Quaternion_1.7.2.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/needstobecropped/bothgood2_IMU2_2023-04-12T12.24.22.925_CFFE2E15FC84_Linear Acceleration_1.7.2.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/needstobecropped/bothgood2_IMU2_2023-04-12T12.24.22.925_CFFE2E15FC84_Quaternion_1.7.2.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/needstobecropped/configtest2_linacc.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/needstobecropped/configtest2_quat.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/needstobecropped/hometest_linacc.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/needstobecropped/hometest_quat.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/newmerge.py" beforeDir="false" afterPath="$PROJECT_DIR$/newmerge.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quat1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/quat2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sensors.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test2" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,15 +231,17 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/needstobecropped" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\erik\OneDrive\Dokument\GitHub\Kandidatarbete\needstobecropped" />
       <recent name="C:\Users\erik\OneDrive\Dokument\GitHub\Kandidatarbete" />
+      <recent name="C:\Users\erik\OneDrive\Dokument\GitHub\Kandidatarbete\needstobecropped" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\erik\OneDrive\Dokument\GitHub\Kandidatarbete\IMU1" />
+      <recent name="C:\Users\erik\OneDrive\Dokument\GitHub\Kandidatarbete\newdata" />
       <recent name="C:\Users\erik\OneDrive\Dokument\GitHub\Kandidatarbete\needstobecropped" />
     </key>
   </component>
@@ -153,6 +280,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="C:\Users\erik\OneDrive\Dokument\GitHub\Kandidatarbete\crop.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="cropbackup" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Kandidatarbete" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cropbackup.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -207,6 +355,7 @@
       <list>
         <item itemvalue="Python.newmerge" />
         <item itemvalue="Python.crop" />
+        <item itemvalue="Python.cropbackup" />
         <item itemvalue="Python.merge" />
       </list>
     </recent_temporary>
@@ -283,7 +432,21 @@
       <option name="project" value="LOCAL" />
       <updated>1681452310872</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Gjort lite mer">
+      <created>1681454348145</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1681454348145</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Gjort lite mer">
+      <created>1681454363384</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1681454363384</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -313,13 +476,38 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/newmerge.py</url>
-          <line>202</line>
+          <line>269</line>
           <option name="timeStamp" value="94" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/crop.py</url>
+          <line>68</line>
+          <option name="timeStamp" value="96" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/crop.py</url>
+          <line>45</line>
+          <option name="timeStamp" value="103" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/crop.py</url>
+          <line>17</line>
+          <option name="timeStamp" value="113" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/newmerge.py</url>
-          <line>146</line>
-          <option name="timeStamp" value="95" />
+          <line>176</line>
+          <option name="timeStamp" value="123" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/newmerge.py</url>
+          <line>114</line>
+          <option name="timeStamp" value="125" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/newmerge.py</url>
+          <line>125</line>
+          <option name="timeStamp" value="127" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

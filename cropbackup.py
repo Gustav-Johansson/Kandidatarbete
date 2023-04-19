@@ -1,8 +1,6 @@
 import csv
 import os
 import numpy as np
-from glob import glob
-
 
 def crop(basepath, endpath):
     basepath = basepath
@@ -10,24 +8,19 @@ def crop(basepath, endpath):
     names = []
     aa = ''
     bb = ''
-    all_csv_files = [file
-                     for path, subdir, files in os.walk(basepath)
-                     for file in glob(os.path.join(path, '*.csv'))]
-    for entries in all_csv_files:
-        entry = entries.split("\\")[-1]
+    with os.scandir(basepath) as entries:
         for entry in entries:
-            if type(entry) == str:
-                basepath2 = bpath + middlepath[0]+'/'
-                inname = f'{basepath2}{entry}'
-                if len(entry.split('_')) == 6:
-                    a, b, c, d, e, f = entry.split('_')
+            if entry.is_file():
+                inname = f'{basepath}{entry.name}'
+                if len(entry.name.split('_')) == 6:
+                    a, b, c, d, e, f = entry.name.split('_')
                     if a == aa and b == bb and e == 'Linear Acceleration':
                         acciterval = iterval
                     elif e == 'Quaternion':
                         pass
                     else:
                         acciterval = 0
-                    outname = endpath + a + b + e[:3] + '_c.csv'
+                    outname = endpath + a + b[-1] + e[:3] + '_c.csv'
                 else:
                     outname = endpath + entry.name + '_c.csv'
                     acciterval = 0
@@ -43,8 +36,8 @@ def crop(basepath, endpath):
                 for i, val in enumerate(accelerations):
                     if i <= acciterval:
                         continue
-                    if e == 'Linear Acceleration' and float(val[2]) > 4 and np.sqrt(
-                            float(val[3]) ** 2 + float(val[4]) ** 2 + float(val[5]) ** 2) > 0.3:
+                    if e == 'Linear Acceleration' and float(val[2]) > 5 and np.sqrt(
+                            float(val[3]) ** 2 + float(val[4]) ** 2 + float(val[5]) ** 2) > 0.01:
                         break
                     elif e != 'Linear Acceleration':
                         break
@@ -65,11 +58,6 @@ def crop(basepath, endpath):
             dd = d
             ee = e
             ff = f
-            return itervalend
             names.append(outname)
 
     return names
-
-basepath = 'needstobecropped/'
-endpath = 'iscropped/'
-print(crop(basepath, endpath))
