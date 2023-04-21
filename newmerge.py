@@ -18,40 +18,50 @@ with os.scandir(basepath) as entr:
         entries.append(entry)
 
 
-importfile = entries[0]
-importfile2 = entries[1]
-importfile3 = entries[2]
-importfile4 = entries[3]
+
+importfile = entries[4]
+importfile2 = entries[5]
+importfile3 = entries[6]
+importfile4 = entries[7]
 
 weight = 89
 calibration = 311
 
+
 # ---------------------------------- Program starts -------------------------
 df_acc = pd.read_csv(importfile)
-df_gyro = pd.read_csv(importfile2)
+df_qua = pd.read_csv(importfile2)
 df_acc2 = pd.read_csv(importfile3)
-df_gyro2 = pd.read_csv(importfile4)
+df_qua2 = pd.read_csv(importfile4)
 
-correct = pd.read_csv('erik0_acc.tsv', delimiter='\t')
-correct = correct.iloc[:]/1000
+correct = pd.read_csv('erik1_acc.tsv', delimiter='\t')
+correct = correct.iloc[:] / 1000
 
 # Ny uppdatering 1.7.2
 df_acc.pop(df_acc.columns[1])
 
-df_gyro.pop(df_gyro.columns[1])
+df_qua.pop(df_qua.columns[1])
 
 df_acc2.pop(df_acc2.columns[1])
 
-df_gyro2.pop(df_gyro2.columns[1])
+df_qua2.pop(df_qua2.columns[1])
 
 interpolacc = (df_acc.iloc[:] + df_acc2.iloc[:]) / 2
-interpolQua = (df_gyro.iloc[:] + df_gyro2.iloc[:]) / 2
+interpolQua = (df_qua.iloc[:] + df_qua2.iloc[:]) / 2
 interpolacc = interpolacc.dropna()
 interpolQua = interpolQua.dropna()
 
-table = pd.merge_asof(interpolQua, interpolacc, on=interpolacc.columns[0])
-table.pop(table.columns[0])
-table.pop(table.columns[5])
+
+#table = pd.merge_asof(interpolQua, interpolacc, on=interpolacc.columns[0])
+table = pd.merge_asof(df_qua2, df_acc2, on=df_acc.columns[0])
+table.pop('elapsed (s)_y')
+table.pop('epoch (ms)')
+
+table = table.dropna()
+
+table = table.drop(table.index[range(5)])
+table.update(table)
+#table = table.iloc[500:899,:]
 
 table = table.dropna()
 
@@ -77,6 +87,10 @@ acc = np.asarray(acc)
 ax = acc[:, 0] * np.cos(calibration) + acc[:, 1] * np.sin(calibration)  # Framåt, positivt är framåt
 ay = acc[:, 1] * np.cos(calibration) + acc[:, 0] * np.sin(calibration)  # Punktens sida positiv (hopparens högra sida)
 az = acc[:, 2]  # Uppåt
+
+ax -= ax[0]  # Tar bort offset så att värdena alltid börjar på noll
+ay -= ay[0]
+az -= az[0]
 
 time = table.iloc[:, 0]
 
@@ -107,24 +121,22 @@ qtmx = [0]
 qtmy = [0]
 qtmz = [0]
 
-cor = [correct.iloc[:,0]+correct.iloc[:,3], correct.iloc[:,1]+correct.iloc[:,4], correct.iloc[:,2]+correct.iloc[:,5]]
+cor = [correct.iloc[:, 0] + correct.iloc[:, 3], correct.iloc[:, 1] + correct.iloc[:, 4],
+       correct.iloc[:, 2] + correct.iloc[:, 5]]
 cor = pd.DataFrame(cor).T
 
-
 for i in np.arange((len(correct)) - 1):
-    dt = 1/100
+    dt = 1 / 100
 
     qtmvx.append(qtmvx[i] + cor.iloc[i, 0] * dt)
-    qtmvy.append(qtmvy[i] + cor.iloc[i, 1] * dt)
+    qtmvy.append(qtmvy[i] - cor.iloc[i, 1] * dt)  # Eftersom kalibreringen blev åt andra hållet blir den negativ.
     qtmvz.append(qtmvz[i] + cor.iloc[i, 2] * dt)
 
     qtmx.append(qtmx[i] + qtmvx[i] * dt + (cor.iloc[i, 0] * dt ** 2) / 2)
     qtmy.append(qtmy[i] + qtmvy[i] * dt + (cor.iloc[i, 1] * dt ** 2) / 2)
     qtmz.append(qtmz[i] + qtmvz[i] * dt + (cor.iloc[i, 2] * dt ** 2) / 2)
 
-
-    corabs.append(np.sqrt(cor.iloc[i,0]**2+cor.iloc[i,1]**2+cor.iloc[i,2]**2))
-
+    corabs.append(np.sqrt(cor.iloc[i, 0] ** 2 + cor.iloc[i, 1] ** 2 + cor.iloc[i, 2] ** 2))
 
 
 # Functions ------------------------------------------------------------------------------------
@@ -161,26 +173,24 @@ def avgforce(between, yval):
 
 # Plotting
 fig, axs = plt.subplots(2, 3)
-axs[0,0].grid()
-axs[1,0].grid()
-axs[1,1].grid()
+axs[0, 0].grid()
+axs[1, 0].grid()
+axs[1, 1].grid()
 
-#axs[0].plot(time, ax, 'r', label="ax")
-#axs[0].plot(time, ay, 'b', label="ay")
-axs[0,0].plot(time, az, 'g', label="az")
-axs[0,0].title.set_text('IMU')
+# axs[0].plot(time, ax, 'r', label="ax")
+# axs[0].plot(time, ay, 'b', label="ay")
+axs[0, 0].plot(time, az, 'g', label="az")
+axs[0, 0].title.set_text('IMU')
 
-t = np.linspace(0,len(correct)/100,len(correct))
+t = np.linspace(0, len(correct) / 100, len(correct))
 
-#axs[2].plot(correct.iloc[:,0], 'r', label="ax")
-#axs[2].plot(correct.iloc[:,1], 'b', label="ay")
-axs[1,0].plot(t, correct.iloc[:,2], 'g', label="az")
+# axs[2].plot(correct.iloc[:,0], 'r', label="ax")
+# axs[2].plot(correct.iloc[:,1], 'b', label="ay")
+axs[1, 0].plot(t, correct.iloc[:, 2], 'g', label="az")
 
-
-
-axs[0,2].plot(time, vx, 'r', label="vx")
-axs[0,2].plot(time, vy, 'b', label="vy")
-axs[0,2].plot(time, vz, 'g', label="vz")
+axs[0, 2].plot(time, vx, 'g', label="vx")
+axs[0, 2].plot(time, vy, 'b', label="vy")
+axs[0, 2].plot(time, vz, 'k', label="vz")
 
 pos = pd.Series(az).idxmax()
 flyingbuff = 60
@@ -191,16 +201,16 @@ locminofpos = localMin(az[pos - rangevallow:pos + 5], len(az[pos - rangevallow:p
 
 between = range(locminofpos - rangevallow, pos + 7)
 
-axs[0,0].plot(time[between[0]], az[between[0]], '*')
-axs[0,0].annotate('Jump force starts', xy=(time[between[0]], az[between[0]]), xycoords='data',
-                xytext=(0.6, 0.11), textcoords='axes fraction',
-                va='top', ha='left',
-                arrowprops=dict(arrowstyle="->", connectionstyle="arc3"))
-axs[0,0].plot(time[between[-1]], az[between[-1]], '*')
-axs[0,0].annotate('Jump force ends', xy=(time[between[-1]], az[between[-1]]), xycoords='data',
-                xytext=(0.01, .99), textcoords='axes fraction',
-                va='top', ha='left',
-                arrowprops=dict(arrowstyle="->", connectionstyle="arc3"))
+axs[0, 0].plot(time[between[0]], az[between[0]], '*')
+axs[0, 0].annotate('Jump force starts', xy=(time[between[0]], az[between[0]]), xycoords='data',
+                   xytext=(0.6, 0.11), textcoords='axes fraction',
+                   va='top', ha='left',
+                   arrowprops=dict(arrowstyle="->", connectionstyle="arc3"))
+axs[0, 0].plot(time[between[-1]], az[between[-1]], '*')
+axs[0, 0].annotate('Jump force ends', xy=(time[between[-1]], az[between[-1]]), xycoords='data',
+                   xytext=(0.01, .99), textcoords='axes fraction',
+                   va='top', ha='left',
+                   arrowprops=dict(arrowstyle="->", connectionstyle="arc3"))
 
 num1 = range(pos + 20, pos + 30)
 # finner var värdet är närmast 1. Där kan man anse att man har hamnat i högsta läget av hoppet.
@@ -214,20 +224,15 @@ for i in num1:
 # axs[0].axvline(table.iloc[position, 0])
 # axs[0].annotate(f'Highest position with force {error}', xy=(table.iloc[position, 0], table.iloc[position, 5]),xytext=(8.6, 3), arrowprops=dict(arrowstyle="->", connectionstyle="arc3"))
 plt.grid()
-axs[0,0].legend()
+axs[0, 0].legend()
 
-t = np.linspace(0,len(correct)/100,len(correct))
+t = np.linspace(0, len(correct) / 100, len(correct))
 
-axs[1,2].plot(t, qtmvx, 'g', label="ax")
-axs[1,2].plot(t, qtmvy, 'b', label="ay")
-axs[1,2].plot(t, qtmvz, 'k', label="az")
+axs[1, 2].plot(t, qtmvx, 'g', label="vx")
+axs[1, 2].plot(t, qtmvy, 'b', label="vy")
+axs[1, 2].plot(t, qtmvz, 'k', label="vz")
 
-axs[1,1].plot(t, corabs)
-
-
-
-
-
+axs[1, 1].plot(t, corabs)
 
 # A Python program to find a local minima in an array
 
@@ -236,35 +241,35 @@ totnorm = np.linalg.norm(table.iloc[:, 5:], axis=1)
 
 force = avgforce(between, totnorm)
 
-axs[0,1].plot(time, totnorm)
-axs[0,1].fill_between(table.iloc[between, 0], totnorm[between], color='blue', alpha=.5)
-axs[0,1].annotate(f'Impuls = {force * weight}', xy=(time[between[3]], ax[between[3]]), xycoords='data',
-                xytext=(0.01, .8), textcoords='axes fraction',
-                va='top', ha='left',
-                arrowprops=dict(arrowstyle="->", connectionstyle="arc3"))
+axs[0, 1].plot(time, totnorm)
+axs[0, 1].fill_between(table.iloc[between, 0], totnorm[between], color='blue', alpha=.5)
+axs[0, 1].annotate(f'Impuls = {force * weight}', xy=(time[between[3]], ax[between[3]]), xycoords='data',
+                   xytext=(0.01, .8), textcoords='axes fraction',
+                   va='top', ha='left',
+                   arrowprops=dict(arrowstyle="->", connectionstyle="arc3"))
 
-axs[0,1].grid()
-axs[1,0].legend()
-axs[1,0].title.set_text('QTM')
-axs[0,1].title.set_text('Summa av krafter')
-axs[0,2].title.set_text('Hastighet IMU')
-axs[1,1].title.set_text('Absolutacceleration QTM')
-axs[1,2].title.set_text('Hastighet QTM (Direkt interegering)')
+axs[0, 1].grid()
+axs[1, 0].legend()
+axs[0, 2].legend()
+axs[1, 2].legend()
 
+axs[1, 0].title.set_text('QTM')
+axs[0, 1].title.set_text('Summa av krafter')
+axs[0, 2].title.set_text('Hastighet IMU')
+axs[1, 1].title.set_text('Absolutacceleration QTM')
+axs[1, 2].title.set_text('Hastighet QTM (Direkt interegering)')
 
-axs[1,0].set_xlabel('Tid [s]')
-axs[0,1].set_xlabel('Tid [s]')
-axs[0,0].set_xlabel('Tid [s]')
-axs[1,1].set_xlabel('Tid [s]')
+axs[1, 0].set_xlabel('Tid [s]')
+axs[0, 1].set_xlabel('Tid [s]')
+axs[0, 0].set_xlabel('Tid [s]')
+axs[1, 1].set_xlabel('Tid [s]')
 
-axs[1,0].set_ylabel('m/s^2')
-axs[0,1].set_ylabel('m/s^2')
-axs[0,0].set_ylabel('m/s^2')
-axs[1,1].set_ylabel('m/s')
+axs[1, 0].set_ylabel('m/s^2')
+axs[0, 1].set_ylabel('m/s^2')
+axs[0, 0].set_ylabel('m/s^2')
+axs[1, 1].set_ylabel('m/s')
 plt.show()
 
-ax = plt.figure().add_subplot(projection='3d')
-ax.plot(x, y, z, 'r', label="Kurvlöpning")
-plt.show()
+print(acc[:,2]-correct.iloc[:,3])
 
 pass
