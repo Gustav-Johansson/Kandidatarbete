@@ -1,9 +1,3 @@
-NO_OF_FRAMES	504
-NO_OF_DATA_TYPES	6
-FREQUENCY	100
-TIME_STAMP	2023-04-19, 10:36:00
-DATA_INCLUDED	Acceleration
-DATA_TYPES	vänster_acc_X	vänster_acc_Y	vänster_acc_Z	höger_acc_X	höger_acc_Y	höger_acc_Z
 
 
 0.000	0.000	0.000	0.000	0.000	0.000

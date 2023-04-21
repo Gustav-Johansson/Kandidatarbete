@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f87f66d-57dd-403b-9c94-09657787cda2" name="Changes" comment="Gjort lite mer">
-      <change afterPath="$PROJECT_DIR$/erik1_acc.tsv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/erik2_acc.tsv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gustav0_acc.tsv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/johan4_acc.tsv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMUhopp/erik0_acc.tsv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMUhopp/test/Settings.qtmproj" beforeDir="false" afterPath="$PROJECT_DIR$/IMUhopp/test/Settings.qtmproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/erik2_acc.tsv" beforeDir="false" afterPath="$PROJECT_DIR$/erik2_acc.tsv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/newmerge.py" beforeDir="false" afterPath="$PROJECT_DIR$/newmerge.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -274,7 +269,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681892048579</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Gjort lite mer">
+      <created>1682059018009</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1682059018009</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -304,7 +306,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/newmerge.py</url>
-          <line>272</line>
+          <line>294</line>
           <option name="timeStamp" value="94" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -324,13 +326,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/newmerge.py</url>
-          <line>186</line>
+          <line>208</line>
           <option name="timeStamp" value="123" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/newmerge.py</url>
-          <line>103</line>
+          <line>125</line>
           <option name="timeStamp" value="125" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/newmerge.py</url>
+          <line>80</line>
+          <option name="timeStamp" value="137" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

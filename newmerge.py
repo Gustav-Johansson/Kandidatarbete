@@ -19,10 +19,10 @@ with os.scandir(basepath) as entr:
 
 
 
-importfile = entries[4]
-importfile2 = entries[5]
-importfile3 = entries[6]
-importfile4 = entries[7]
+importfile = entries[10]
+importfile2 = entries[11]
+importfile3 = entries[10]
+importfile4 = entries[11]
 
 weight = 89
 calibration = 311
@@ -34,7 +34,7 @@ df_qua = pd.read_csv(importfile2)
 df_acc2 = pd.read_csv(importfile3)
 df_qua2 = pd.read_csv(importfile4)
 
-correct = pd.read_csv('erik1_acc.tsv', delimiter='\t')
+correct = pd.read_csv('erik2_acc.tsv', delimiter='\t')
 correct = correct.iloc[:] / 1000
 
 # Ny uppdatering 1.7.2
@@ -46,24 +46,44 @@ df_acc2.pop(df_acc2.columns[1])
 
 df_qua2.pop(df_qua2.columns[1])
 
-interpolacc = (df_acc.iloc[:] + df_acc2.iloc[:]) / 2
+syncedvalues = pd.merge_asof(df_acc.iloc[:], df_acc2.iloc[:], on=df_acc.iloc[:].columns[0])
+
+syncedvalues = syncedvalues.rename(columns={"x-axis (g)_x": "x-axis (g)", "y-axis (g)_x": "y-axis (g)", 'z-axis (g)_x': 'z-axis (g)', "x-axis (g)_y": "x-axis (g)", "y-axis (g)_y": "y-axis (g)", 'z-axis (g)_y':'z-axis (g)', 'elapsed (s)_x':'elapsed (s)'})
+
+
+interpolacc = (syncedvalues.iloc[:, 2:5] + syncedvalues.iloc[:,6:]) / 2
+interpolacc['epoch (ms)'] = syncedvalues.iloc[:,0]
 interpolQua = (df_qua.iloc[:] + df_qua2.iloc[:]) / 2
 interpolacc = interpolacc.dropna()
 interpolQua = interpolQua.dropna()
 
+interpolacc = interpolacc[['epoch (ms)', 'x-axis (g)', 'y-axis (g)', 'z-axis (g)']]
+interpolQua = interpolQua[['epoch (ms)', 'elapsed (s)', 'w (number)', 'x (number)', 'y (number)',
+       ' z (number)']]
 
-#table = pd.merge_asof(interpolQua, interpolacc, on=interpolacc.columns[0])
-table = pd.merge_asof(df_qua2, df_acc2, on=df_acc.columns[0])
-table.pop('elapsed (s)_y')
+interpolacc['epoch (ms)'] = pd.to_datetime(interpolacc['epoch (ms)'])
+interpolQua['epoch (ms)'] = pd.to_datetime(interpolQua['epoch (ms)'])
+
+
+
+table = pd.merge_asof(interpolQua, interpolacc, on=interpolacc.columns[0])
+#table = pd.merge_asof(df_qua2, df_acc2, on=df_acc.columns[0])
 table.pop('epoch (ms)')
 
 table = table.dropna()
 
-table = table.drop(table.index[range(5)])
-table.update(table)
-#table = table.iloc[500:899,:]
+end = 406
+start = 516
 
-table = table.dropna()
+# table.iloc[:,5:] = syncedvalues.iloc[:,2:5]
+# table.iloc[:,5:] = syncedvalues.iloc[:,6:]
+
+table = table.drop(len(table)-table.index[range(end)]-1)
+table = table.drop(table.index[range(start)])
+
+table = table.reset_index(drop=True)
+
+table.iloc[:,0] -= table.iloc[0,0]
 
 # Gör om till m/s^2
 table.iloc[:, 5:] *= 9.82
@@ -228,8 +248,8 @@ axs[0, 0].legend()
 
 t = np.linspace(0, len(correct) / 100, len(correct))
 
-axs[1, 2].plot(t, qtmvx, 'g', label="vx")
-axs[1, 2].plot(t, qtmvy, 'b', label="vy")
+axs[1, 2].plot(t, qtmvx, 'b', label="vx")
+axs[1, 2].plot(t, qtmvy, 'g', label="vy")
 axs[1, 2].plot(t, qtmvz, 'k', label="vz")
 
 axs[1, 1].plot(t, corabs)
@@ -270,6 +290,6 @@ axs[0, 0].set_ylabel('m/s^2')
 axs[1, 1].set_ylabel('m/s')
 plt.show()
 
-print(acc[:,2]-correct.iloc[:,3])
-
+felmarginal = (sum(acc[:,2]-correct.iloc[:,3]))/len(acc)
+print(felmarginal)
 pass
